@@ -52,17 +52,20 @@ const dummyLists = [
   {
     id: listsId[0],
     title: "Todo ",
+    color: 'white',
     tickets: [
       {
         id: v4(),
         title: "Finish UI",
         description: "UI Must be finished asap",
+        priority:"None"
       },
     ],
   },
   {
     id: listsId[1],
     title: "In Progress ",
+    color: 'red',
     tickets: [
       // {
       //     title: 'Finish UI',
@@ -73,6 +76,7 @@ const dummyLists = [
   {
     id: listsId[2],
     title: "Done",
+    color: 'red',
     tickets: [],
   },
 ];

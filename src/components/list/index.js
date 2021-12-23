@@ -23,15 +23,7 @@ const AddListButton = (props) => {
   );
 };
 
-const DropZone = styled.div`
-  width: 100%;
-  height: 635px;
-  max-height: 635px;
-  /* display: block; */
-  overflow-y: scroll;
-  background-color: ${(props) =>
-    props.isDraggingOver ? `rgb(48, 57, 64)` : `transperent`};
-`;
+
 
 export const ListBox = (props) => {
   function handleAddTicket() {
@@ -43,8 +35,8 @@ export const ListBox = (props) => {
   }
 
   return (
-    <styles.ListDiv>
-      <styles.ListHeader>
+    <styles.ListDiv >
+      <styles.ListHeader color={props.list.color}>
         {props.list.title}
         <styles.ButtonsRow>
           <styles.TicketCounter>
@@ -57,7 +49,7 @@ export const ListBox = (props) => {
       <Droppable droppableId={props.list.title}>
         {(provided, snapshot) => {
           return (
-            <DropZone
+            <styles.DropZone
               ref={provided.innerRef}
               {...provided.droppableProps}
               isDraggingOver={snapshot.isDraggingOver}
@@ -91,7 +83,7 @@ export const ListBox = (props) => {
                 );
               })}
               {provided.placeholder}
-            </DropZone>
+            </styles.DropZone>
           );
         }}
       </Droppable>

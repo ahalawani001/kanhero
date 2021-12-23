@@ -1,6 +1,23 @@
 import styled from "styled-components"
 
+export const DropZone = styled.div`
+width: 100%;
+height: 635px;
+max-height: 635px;
+/* display: block; */
+overflow-y: scroll;
+background-color: ${(props) =>
+  props.isDraggingOver ? `rgb(48, 57, 64)` : `transperent`};
+`;
 
+export const AddListDiv = styled.div`
+position: relative;
+width: 700px;
+${'' /* height:300px; */}
+border-radius: 10px;
+background-color: #1e272e;
+padding:25px;
+`;
 
 export const ListDiv = styled.div`
 height: 700px;
@@ -19,7 +36,8 @@ overflow:hidden;
 
 export const ListHeader = styled.div`
 height: 35px;
-border-top: 4px solid red;    
+border-top: 4px solid ${(props) =>
+    props.color };;    
 ${'' /* background-color: red;  */}
 display: felx;
 justify-content: space-between;

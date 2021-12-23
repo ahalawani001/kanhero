@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { RiFlag2Line } from "react-icons/ri";
 
 export const TicketDiv = styled.div`
 background-color:${props=>(props.isDragging?  `rgb(226, 224, 224)`: `rgba(226, 224, 224, 0.7)`)};
@@ -15,6 +16,7 @@ font-weight: 600;
 padding:${props=>(props.isDragging?  `12px`: `10px`)};
 
 display: flex;
+justify-content: space-between;
 align-items:center;
 
 text-overflow: 'ellipsis';
@@ -28,7 +30,19 @@ text-overflow: 'ellipsis';
     opacity: 0.7;  
 }
 &:active{
-    
     cursor:grabbing;
 }
 `;
+
+export const PriorityBox = styled.div`
+width: 30px;
+height:30px;
+border-radius:5px;
+background-color:${props=> props.color};
+display:flex;
+justify-content:center;
+align-items: center;
+
+
+`;
+

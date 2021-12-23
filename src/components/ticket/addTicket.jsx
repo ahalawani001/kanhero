@@ -2,22 +2,24 @@ import react, { useState, useRef } from "react";
 import styled from "styled-components";
 import { ClosePageButton } from "../common";
 import { v4 } from "uuid";
+import { PrioritySelector } from "../prioritySelector";
 
 const AddTicketDiv = styled.div`
 position: relative;
 width: 700px;
-height:420px;
+${'' /* height:420px; */}
 border-radius: 10px;
 background-color: #1e272e;
+padding: 30px;
 `;
 
 
 
 
 export const AddNewTicketForm = (props)=>{
-    console.log("list ", props.list)
     const titleRef = useRef();
     const descriptionRef = useRef();
+    const [taskPriority, setTaskPriority] = useState('None')
 
     function submitHandler(event){
         event.preventDefault();
@@ -28,6 +30,7 @@ export const AddNewTicketForm = (props)=>{
         let ticket = {
             id: "T"+v4(),
             title: newTitle,
+            priority: taskPriority,
             description: newDescription
         }
         
@@ -35,12 +38,19 @@ export const AddNewTicketForm = (props)=>{
         props.closeForm();
     }
 
+    function handlePriorityChange(priority){
+        console.log("We here");
+        setTaskPriority(priority);
+    }
+
+   
+
 
     return <div className="customBackdrop">
     <AddTicketDiv>
         
     <ClosePageButton closeForm = {props.closeForm}></ClosePageButton>
-        <br />
+        {/* <br />   */}
         <h1>Add New Ticket</h1>
         <br />  
         <div>
@@ -52,9 +62,11 @@ export const AddNewTicketForm = (props)=>{
             <br />
             <br />
             
-            <label htmlFor="description" placeholder="Ex: All tasks">List Description </label>
+            <label htmlFor="description" placeholder="Ex: All tasks">List Description: </label>
             <textarea type="text"  id = 'description' ref={descriptionRef}/>
             <br />
+
+            <PrioritySelector priority= {taskPriority} changePriority={handlePriorityChange}/>
          
             <button className="cstmBtn">Add Ticket</button>
             </div>

@@ -2,19 +2,16 @@ import react, { useState, useRef } from "react";
 import styled from "styled-components";
 import { ClosePageButton } from "../common";
 import { v4 } from "uuid";
+import * as styles from "./styles";
+import { ColorSelector } from "../colorSelector";
 
 
-const AddListDiv = styled.div`
-position: relative;
-width: 700px;
-height:300px;
-border-radius: 10px;
-background-color: #1e272e;
-`;
+
 
 
 
 export const AddNewListForm = (props)=>{
+    const [listColor, setListColor] = useState('white');
     const titleRef = useRef();
 
     function submitHandler(event){
@@ -25,6 +22,7 @@ export const AddNewListForm = (props)=>{
         let list = {
             id: "L"+v4(),
             title: newTitle,
+            color: listColor,
             tickets: []
         }
         
@@ -32,26 +30,32 @@ export const AddNewListForm = (props)=>{
         props.closeForm();
     }
 
+    function handleColorChange(color){
+        console.log("We here");
+        setListColor(color)
+    }
+
+   
+
     return <div className="customBackdrop">
-        <AddListDiv>
+        <styles.AddListDiv>
         <ClosePageButton closeForm = {props.closeForm}></ClosePageButton>
         <br />
         <h1>Add New List</h1>
-        <br />  
+        {/* <br />   */}
         <div>
             <form onSubmit={submitHandler}> 
             <div className='groupList'>
             <label htmlFor="title" placeholder="Ex: All tasks">List Title: </label>
             <input type="text"  required id = 'title' ref={titleRef}/>
             <br />
+            <ColorSelector color={listColor} changeColor={handleColorChange}> </ColorSelector>
          
             <button className="cstmBtn">Add List</button>
             </div>
-
-
             </form>
         </div>
 
-        </AddListDiv>
+        </styles.AddListDiv>
     </div>
 }
