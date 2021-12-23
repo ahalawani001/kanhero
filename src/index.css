@@ -1,0 +1,150 @@
+body {
+  align-items: center;
+  
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+html{
+
+  background-color: rgb(43, 52, 59);}
+
+
+.customBackdrop{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  align-items: center;
+  display:flex;
+  justify-content: center;
+}
+.centerCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 90%;
+  margin: 10px;
+  margin-top: 80px;
+  height: 85vh;
+  background-color: #1e272e;
+  border-radius: 10px;
+  box-shadow: 3px 5px 4px #171b1f;
+  padding-left:10px;
+  padding-right: 10px;
+}
+
+.groupList{ 
+  position:relative; 
+}
+.listBtn {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.listBtn:hover{
+  cursor: pointer;
+  opacity: 0.5
+  
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2B343B; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2B343B; 
+}
+
+label{
+  font-size: 20px;
+  margin-right: 20px;
+  font-weight: 500;
+}
+.dropZone{
+  width:100%;
+  height: 100%;
+  /* background-color: red; */
+}
+input[type=text] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  outline: none;
+  color: white;
+  font-size: 18px;
+}
+
+textarea[type=text]{
+  
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  outline: none;
+  color: white;
+  font-size: 18px;
+}
+
+.cstmBtn{
+  background-color: transparent;
+  
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 14px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  color: white;
+}
+
+.updateBtn{
+  background-color: rgb(90, 5, 200);  
+  border: 2px solid rgb(90, 5, 200);
+  border-radius: 50px;
+  padding: 14px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  color: white;
+  margin-left: 20px;
+}
+
+
+.deleteBtn{
+  background-color: red;
+  
+  border: 2px solid red;
+  border-radius: 50px;
+  padding: 14px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 20px ;
+  color: white;
+}
+
+.cstmBtn:hover{
+  background-color: white;
+  color: #1e272e; 
+}
