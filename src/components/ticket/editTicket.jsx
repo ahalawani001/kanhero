@@ -19,11 +19,22 @@ padding-right:30px;
 `;
 
 export const EditTicketForm= (props)=>{
-    const [title, setTitle] = useState(props.title?props.title:'')
-    const [description, setDescription] = useState(props.description?props.description:'')
+    const [title, setTitle] = useState(props.ticket.title?props.ticket.title:'')
+    const [description, setDescription] = useState(props.ticket.description?props.ticket.description:'')
     
     function submitHandler(event){
+        
         event.preventDefault();
+        let newTicket ={
+            index: props.index,
+            ticket:  {
+            id: props.ticket.id,
+            title: title,
+            description: description
+        }
+        }
+
+        props.editTicket(newTicket);
     }
 
     function submitTitleOnChange (event){

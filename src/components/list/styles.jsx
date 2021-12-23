@@ -9,7 +9,8 @@ min-width: 300px;
 background-color: #2B343B;
 margin-right: 25px;
 border-radius:4px;
-box-shadow: 2px 1px 4px #171b1f; 
+
+box-shadow: 0 -30px 30px -15px rgba(0,0,0,1);
 ${'' /* padding-bottom: 10px; */}
 overflow:hidden;
 
@@ -18,7 +19,7 @@ overflow:hidden;
 
 export const ListHeader = styled.div`
 height: 35px;
-border-top: 4px solid white;    
+border-top: 4px solid red;    
 ${'' /* background-color: red;  */}
 display: felx;
 justify-content: space-between;

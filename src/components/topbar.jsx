@@ -6,11 +6,10 @@ export const Topbar =styled.div`
   top:0;
   left:0;
   width:100%;
-  padding:10px;
+  padding:20px;
   background-color: #1e272e;
     color: white;
-  font-size: 30px;
-  margin-top: 0;
+  font-size: 24px;
   text-align: center;
   
 display: flex;
