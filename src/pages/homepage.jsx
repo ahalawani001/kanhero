@@ -213,13 +213,6 @@ class Homepage extends React.PureComponent{
             }) }
         )
 
-   
-        // let sourceList =this.state.lists.filter((list)=>list.id === source.droppableId)[0]
-        // let destinationList = {...this.state.lists.filter((list)=>list.id === destination.droppableId)[0]}
-
-        // sourceList = sourceList.tickets.splice(source.index,1)
-        // destinationList.tickets.push(ticketCopy);
-        // this.setState({})
     }
 
 
