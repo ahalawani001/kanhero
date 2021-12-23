@@ -27,8 +27,6 @@ export const AddNewTicketForm = (props)=>{
 
         let ticket = {
             id: "T"+v4(),
-            listId: props.list.id,
-            listTitle: props.list.title,
             title: newTitle,
             description: newDescription
         }

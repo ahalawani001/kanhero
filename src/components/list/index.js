@@ -23,6 +23,14 @@ const AddListButton = (props)=>{
     </div>
 }
 
+const DropZone = styled.div`
+width:100%;
+height: 635px;
+ max-height: 635px;  
+  /* display: block; */
+ overflow-y: scroll;
+  background-color: ${props=>(props.isDraggingOver?  `rgb(48, 57, 64)`: `transperent`)}; 
+`
 
 
 
@@ -43,20 +51,26 @@ export const ListBox =(props)=>{
     <styles.ListHeader>
        {props.list.title}
         <styles.ButtonsRow>
+        
+        <styles.TicketCounter>
+        {props.list.tickets.length}</styles.TicketCounter>
         <DeleteButton handleDeleteTicket={handleDeleteTicket}/>
         <AddListButton handleAddTicket={handleAddTicket}/>
         </styles.ButtonsRow>
     </styles.ListHeader>
-    <Droppable droppableId={props.list.id}>
-        {(provided)=>{
+    <Droppable droppableId={props.list.title}>
+        {(provided, snapshot)=>{
             return (
-                <div ref={provided.innerRef}
+                <DropZone
+                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                className="dropZone"
+                isDraggingOver={snapshot.isDraggingOver}
+                // className="dropZone"
                 >
+
     {props.list.tickets.map((ticket, index)=>{
-        return <Draggable key ={ticket.id} index={index} draggableId={ticket.id}>
-            {(provided)=>{
+        return <Draggable key ={ticket.title} index={index} draggableId={ticket.title}>
+            {(provided, snapshot)=>{
                 return(
                     <div 
                     ref={provided.innerRef}
@@ -64,7 +78,7 @@ export const ListBox =(props)=>{
                     {...provided.dragHandleProps}
                   
                     >
-                   <Ticket ticket={ticket} editTicket={props.editTicket} />
+                   <Ticket ticket={ticket} editTicket={props.editTicket} isDragging ={snapshot.isDragging}/>
                     </div>
                 )
             }}
@@ -72,7 +86,7 @@ export const ListBox =(props)=>{
        
     })}
     {provided.placeholder}
- </div>
+ </DropZone>
  )
         }}
     </Droppable>

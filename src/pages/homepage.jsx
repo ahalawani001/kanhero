@@ -7,29 +7,62 @@ import { AddNewListForm } from "../components/list/addNewList";
 import { AddNewTicketForm } from "../components/ticket/addTicket";
 import { EditTicketForm } from "../components/ticket/editTicket";
 import { v4 } from "uuid";
+import { MdOutlineZoomOut } from "react-icons/md";
 
+// const ticketId=['T'+v4(),'T'+v4(),'T'+v4(),'T'+v4()]
+const listsId =['L' + v4(), 'L'+v4(), 'L'+v4()]
+
+
+// const dummyTickets=[
+//     {
+//         id:ticketId[0],
+//         title: 'ticket 1',
+//         description: 'desc1',
+//     },
+//     {
+//         id:ticketId[1],
+//         title: 'ticket 2',
+//         description: 'desc2',
+//     },
+//     {
+//         id:ticketId[2],
+//         title: 'ticket 3',
+//         description: 'desc3',
+//     },
+//     {
+//         id:ticketId[3],
+//         title: 'ticket 4',
+//         description: 'desc4',
+//     },
+// ]
+// const dummyLists =[
+//     {
+//         id: listsId[0],
+//         title: 'Todo',
+//         tickets:[ticketId[0],ticketId[1],ticketId[2]]
+//     },
+//     {
+//         id: listsId[1],
+//         title: 'In Progress',
+//         tickets:[ticketId[3]]
+//     },
+// ]
+
+const dummyListsOrder = [listsId[0], listsId[1], listsId[2]]
 const dummyLists=[
     {
-        id:v4(),
+        id:listsId[0],
         title: 'Todo ',
         tickets:[
-            // {
-            //     title: 'Finish Logic',
-            //     description: 'How to add lists/tickets'
-            // },
-            // {
-            //     title: 'Finish Functionality',
-            //     description: 'Drag and drop functionality must be done asap'
-            // },
-            
-            // {
-            //     title: 'Prepare for interview',
-            //     description: 'Drag and drop functionality must be done asap'
-            // },
+            {
+                id:v4(),
+                title: 'Finish UI',
+                description: 'UI Must be finished asap'
+            },
         ]
 },
 {
-    id:v4(),
+    id:listsId[1],
     title: 'In Progress ',
     tickets:[
         // {
@@ -38,7 +71,7 @@ const dummyLists=[
         // },
     ]
 },{
-    id:v4(),
+    id:listsId[2],
     title:'Done',
     tickets:[]
 }
@@ -51,7 +84,9 @@ class Homepage extends React.PureComponent{
     constructor(props){
         super();
         this.state={
-            lists: [],
+            lists: dummyLists,
+            // tickets: dummyTickets,
+            listsOrder: dummyListsOrder,
             activeList:{},
             title: 'KanHero',
             showAddList: false,
@@ -80,8 +115,9 @@ class Homepage extends React.PureComponent{
         let newList = list;  
         console.log("New List is ", newList)
         this.setState({
-            lists: [...this.state.lists, newList]
-        })
+            lists: [...this.state.lists, newList],
+        });
+        
     }
 
     showAddListForm(){
@@ -193,30 +229,38 @@ class Homepage extends React.PureComponent{
         //Step 2 ----> Delete the ticket from source list
         //Step 3 ----> Add the copy to the destination list
         
-        const ticketCopy ={...this.state.lists.filter((list)=>list.id === source.droppableId)[0].tickets[source.index]}
+        const ticketCopy ={...this.state.lists.filter((list)=>list.title === source.droppableId)[0].tickets[source.index]}
 
-    
-        this.setState(
+       
+        if(source.droppableId === destination.droppableId && destination.index !== source.index)
+        {
+            console.log("Change position in same column from i = ", source.index,' to i = ', destination.index)
+        
+        
+            // return
+
+        }
+
+        const newState = {
+            ...this.state,
+            lists:
+            this.state.lists.map((list, index)=>{
+              
+
+            if(list.title === source.droppableId ){
+                list.tickets.splice(source.index, 1);
+            }
+             if(list.title === destination.droppableId )
             {
-                lists:
-                this.state.lists.map((list, index)=>{
-                    console.log("RUN=> ",index, list.title)
+                list.tickets.splice(destination.index, 0, ticketCopy)
+            }
+            return list;
+        })
+        }
 
-                if(list.id === source.droppableId && destination.droppableId !== source.droppableId ){
-                    list.tickets.splice(source.index, 1);
-                }
-                 if(list.id === destination.droppableId  && destination.droppableId !== source.droppableId)
-                {
-                    list.tickets.splice(destination.index, 0, ticketCopy)
-                }
-                return list;
-            }) }
-        )
+        this.setState(newState);
 
     }
-
-
-
  
    render(){
  

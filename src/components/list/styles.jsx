@@ -10,7 +10,10 @@ background-color: #2B343B;
 margin-right: 25px;
 border-radius:4px;
 box-shadow: 2px 1px 4px #171b1f; 
-overflow-y: scroll;
+${'' /* padding-bottom: 10px; */}
+overflow:hidden;
+
+
 `;
 
 export const ListHeader = styled.div`
@@ -35,4 +38,18 @@ display:flex;
 align-item:center;
 justify-content:center;
 ${'' /* background-color:blue; */}
+`
+
+export const TicketCounter = styled.div`
+${'' /* border: 1px solid white; */}
+padding-top: 4px;
+height:23px;
+width:25px;
+border-radius: 100px;
+margin-right:5px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
 `
