@@ -9,43 +9,9 @@ import { EditTicketForm } from "../components/ticket/editTicket";
 import { v4 } from "uuid";
 import { MdOutlineZoomOut } from "react-icons/md";
 
-// const ticketId=['T'+v4(),'T'+v4(),'T'+v4(),'T'+v4()]
 const listsId = ["L" + v4(), "L" + v4(), "L" + v4()];
 
-// const dummyTickets=[
-//     {
-//         id:ticketId[0],
-//         title: 'ticket 1',
-//         description: 'desc1',
-//     },
-//     {
-//         id:ticketId[1],
-//         title: 'ticket 2',
-//         description: 'desc2',
-//     },
-//     {
-//         id:ticketId[2],
-//         title: 'ticket 3',
-//         description: 'desc3',
-//     },
-//     {
-//         id:ticketId[3],
-//         title: 'ticket 4',
-//         description: 'desc4',
-//     },
-// ]
-// const dummyLists =[
-//     {
-//         id: listsId[0],
-//         title: 'Todo',
-//         tickets:[ticketId[0],ticketId[1],ticketId[2]]
-//     },
-//     {
-//         id: listsId[1],
-//         title: 'In Progress',
-//         tickets:[ticketId[3]]
-//     },
-// ]
+
 
 const dummyListsOrder = [listsId[0], listsId[1], listsId[2]];
 const dummyLists = [
@@ -53,6 +19,21 @@ const dummyLists = [
     id: listsId[0],
     title: "Todo ",
     color: 'white',
+    tickets: [
+    
+    ],
+  },
+  {
+    id: listsId[1],
+    title: "In Progress ",
+    color: 'green',
+    tickets: [
+    ],
+  },
+  {
+    id: listsId[2],
+    title: "Done",
+    color: 'red',
     tickets: [
       {
         id: v4(),
@@ -62,30 +43,13 @@ const dummyLists = [
       },
     ],
   },
-  {
-    id: listsId[1],
-    title: "In Progress ",
-    color: 'red',
-    tickets: [
-      // {
-      //     title: 'Finish UI',
-      //     description: 'UI Must be finished asap'
-      // },
-    ],
-  },
-  {
-    id: listsId[2],
-    title: "Done",
-    color: 'red',
-    tickets: [],
-  },
 ];
 
 class Homepage extends React.PureComponent {
   constructor(props) {
     super();
     this.state = {
-      lists: dummyLists,
+      lists: [],
       // tickets: dummyTickets,
       listsOrder: dummyListsOrder,
       activeList: {},
@@ -304,6 +268,14 @@ class Homepage extends React.PureComponent {
 
         <center>
           <div className="centerCard">
+            
+        {this.state.lists.length === 0 && 
+        <div>
+        <h2>Welcome To KanHero</h2>
+        <h3>Create Your First List</h3>
+
+        </div>
+        }
             <ShowLists
               lists={this.state.lists}
               addList={this.showAddListForm}

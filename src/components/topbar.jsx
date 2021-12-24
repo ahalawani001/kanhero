@@ -6,7 +6,7 @@ export const Topbar =styled.div`
   top:0;
   left:0;
   width:100%;
-  padding:20px;
+  padding:10px;
   background-color: #1e272e;
     color: white;
   font-size: 24px;

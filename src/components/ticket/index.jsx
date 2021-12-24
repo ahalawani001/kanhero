@@ -38,10 +38,10 @@ export const  Ticket = (props)=>{
         }
         props.editTicket(activeTicket, props.list);
     }
-    return <styles.TicketDiv onClick={handleEditTicket} isDragging={props.isDragging}>
+    return <styles.TicketDiv onClick={handleEditTicket} isDragging={props.isDragging} listColor={props.list.color}>
         {props.ticket.title} 
         {props.ticket.priority !== 'None' && 
-        <styles.PriorityBox color={getColor}><RiFlag2Line color=""></RiFlag2Line></styles.PriorityBox>}
+        <styles.PriorityBox color={getColor}> {props.ticket.priority} <RiFlag2Line color="" size={20}></RiFlag2Line></styles.PriorityBox>}
 
     </styles.TicketDiv>
 

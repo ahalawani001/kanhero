@@ -1,16 +1,14 @@
 import styled from "styled-components";
-import { RiFlag2Line } from "react-icons/ri";
 
 export const TicketDiv = styled.div`
 background-color:${props=>(props.isDragging?  `rgb(226, 224, 224)`: `rgba(226, 224, 224, 0.7)`)};
 height: 30px;
-${'' /* width: 100%; */}
 max-width: 250px;
 color: ${props=>(props.isDragging?  `#1e272e`: `#1e272e`)};
 margin: 10px;
 margin-top:20px;
-${'' /* box-shadow: 0px 2px 1px #000000; */}
-border: 1px solid  rgba(255,255,255,0);
+ border-top: 2px solid ${props=> props.listColor};
+height: 30px;;
 border-radius: 5px;
 font-weight: 600;
 padding:${props=>(props.isDragging?  `12px`: `10px`)};
@@ -35,13 +33,15 @@ text-overflow: 'ellipsis';
 `;
 
 export const PriorityBox = styled.div`
-width: 30px;
+width: 75px;    
 height:30px;
 border-radius:5px;
 background-color:${props=> props.color};
+padding: 0 8px;
 display:flex;
-justify-content:center;
+justify-content:space-between;;
 align-items: center;
+font-size:14px;
 
 
 `;
