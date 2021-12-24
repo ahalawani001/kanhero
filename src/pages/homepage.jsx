@@ -49,7 +49,7 @@ class Homepage extends React.PureComponent {
   constructor(props) {
     super();
     this.state = {
-      lists: [],
+      lists: dummyLists,
       // tickets: dummyTickets,
       listsOrder: dummyListsOrder,
       activeList: {},
