@@ -52,21 +52,24 @@ export const AddNewTicketForm = (props)=>{
     <ClosePageButton closeForm = {props.closeForm}></ClosePageButton>
         {/* <br />   */}
         <h1>Add New Ticket</h1>
-        <br />  
         <div>
-            <form onSubmit={submitHandler}> 
+            <form  onSubmit={submitHandler}> 
             <div className='groupList'>
-            <label htmlFor="title" placeholder="Ex: All tasks">Ticket Title: </label>
-            <input type="text"  required id = 'title' ref={titleRef}/>
-            <br />
-            <br />
-            <br />
-            
-            <label htmlFor="description" placeholder="Ex: All tasks">List Description: </label>
-            <textarea type="text"  id = 'description' ref={descriptionRef}/>
-            <br />
+            <div className="formItem">
+                
+            <label className='formLabel' htmlFor="title" placeholder="Ex: All tasks">Title: </label>
+            <input className='formInput' type="text"  required id = 'title' ref={titleRef}/>
+            </div>
 
+            <div className="formItem">
+            
+            <label htmlFor="description" placeholder="Ex: All tasks">Description: </label>
+            <textarea type="text"  id = 'description' ref={descriptionRef}/></div>
+            {/* <br /> */}
+            <div className="formItem">
+                
             <PrioritySelector priority= {taskPriority} changePriority={handlePriorityChange}/>
+            </div>
          
             <button className="cstmBtn">Add Ticket</button>
             </div>

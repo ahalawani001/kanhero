@@ -27,10 +27,12 @@ export const PRIORITIES =[
 
 const PrioritySelectorDiv = styled.div`
 ${'' /* height: 50px; */}
-width: 87%;
+width: 100%;
 margin-top: 35px;
-${'' /* background-color:black;  */}
+ ${'' /* background-color:black; */}
 display: flex;
+justify-content: space-between;
+
 `
 
 const PrioritiesDiv = styled.div`
@@ -39,12 +41,13 @@ display:flex;
 flex-direction: column;
 justify-content: start;
 padding:10px;
-${'' /* width: 70%; */}
-${'' /* background-color: white*/}
+width: 70%;
+${'' /* background-color: white */}
 `;
 
 const PriorityButton = styled.div`
 ${'' /* margin:10px; */}
+width:30%;
 display:flex;
 justify-content: space-between;
 padding:10px 30px;
@@ -77,7 +80,7 @@ export  const PrioritySelector = (props)=>{
    <PrioritiesDiv> {
     PRIORITIES.map((p)=>{
            return  <PriorityButton color={p.color} isSelected={p.priority === props.priority} onClick={()=>{return props.changePriority(p.priority)}}> {p.priority} 
-           <RiFlag2Line style={{marginLeft: '20px'}} color=''/>
+           <RiFlag2Line style={{marginLeft: '20px'}} size={20}/>
            </PriorityButton>
         })
     }</PrioritiesDiv>

@@ -14,9 +14,9 @@ background-color: #1e272e;
 `;
 
 const ButtonsRow = styled.div`
-width: 95%;
+width: 100%;
 display:flex;
-justify-content: right;
+justify-content: center;
 padding-right:30px;
 `;
 
@@ -64,17 +64,21 @@ export const EditTicketForm= (props)=>{
         <div style={{'marginTop':'20px'}}>
             <form onSubmit={submitHandler}> 
             <div className='groupList'>
-            <label htmlFor="title" >Ticket Title: </label>
+
+            <div className="formItem">
+            <label htmlFor="title" >Title: </label>
             <input type="text"   id = 'title'  value ={title} onChange={submitTitleOnChange}/>
-            <br />
-            <br />
-            <br />
+            </div>
+        <br/>
             
+            <div className="formItem">
             <label htmlFor="description" >List Description </label>
             <textarea type="text"   id = 'description' onChange={submitDescriptionOnChange} value={description}/>
-            <br />
-
+            </div>
+    
+            <div className="formItem">
             <PrioritySelector priority= {priority} changePriority={handlePriorityChange}/>
+            </div>
 
             <ButtonsRow >
             <button className="cstmBtn" onClick={props.closeForm}>Cancel</button>
