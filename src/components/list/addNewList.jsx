@@ -35,8 +35,6 @@ export const AddNewListForm = (props)=>{
         setListColor(color)
     }
 
-   
-
     return <div className="customBackdrop">
         <styles.AddListDiv>
         <ClosePageButton closeForm = {props.closeForm}></ClosePageButton>
@@ -46,9 +44,12 @@ export const AddNewListForm = (props)=>{
         <div>
             <form onSubmit={submitHandler}> 
             <div className='groupList'>
-            <label htmlFor="title" placeholder="Ex: All tasks">List Title: </label>
+
+            <label htmlFor="title" placeholder="Ex: All tasks">List Title: </label>   
             <input type="text"  required id = 'title' ref={titleRef}/>
+         
             <br />
+            
             <ColorSelector color={listColor} changeColor={handleColorChange}> </ColorSelector>
          
             <button className="cstmBtn">Add List</button>

@@ -2,6 +2,7 @@ import react, { useState, useRef } from "react";
 import styled from "styled-components";
 import { ClosePageDiv } from "../common";
 import { MdDeleteForever } from "react-icons/md";
+import { ButtonsRow } from "../common";
 import { PrioritySelector } from "../prioritySelector";
 
 const EditTicketDiv = styled.div`
@@ -13,12 +14,6 @@ border-radius: 10px;
 background-color: #1e272e;
 `;
 
-const ButtonsRow = styled.div`
-width: 100%;
-display:flex;
-justify-content: center;
-padding-right:30px;
-`;
 
 export const EditTicketForm= (props)=>{
     const [title, setTitle] = useState(props.ticket.title?props.ticket.title:'');
@@ -51,7 +46,6 @@ export const EditTicketForm= (props)=>{
 
     
     function handlePriorityChange(priority){
-        console.log("We here");
         setPriority(priority);
     }
     

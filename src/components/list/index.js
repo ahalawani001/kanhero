@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineDelete } from "react-icons/ai";
-
+import { FiEdit } from "react-icons/fi";
 import { IoAddOutline } from "react-icons/io5";
 import * as styles from "./styles";
 import { Ticket } from "../ticket";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-const DeleteButton = (props) => {
+const EditButton = (props) => {
   return (
-    <div className="listBtn" onClick={props.handleDeleteTicket}>
-      <AiOutlineDelete size={25} />
+    <div className="listBtn" onClick={props.handleEditList}>
+      <FiEdit size={20} style={{'marginTop': '3px'}}/>
     </div>
   );
 };
@@ -30,8 +30,13 @@ export const ListBox = (props) => {
     props.addTicket(props.list);
   }
 
-  function handleDeleteTicket() {
-    props.deleteItem(props.list, "list");
+  // function handleDeleteTicket() {
+  //   props.deleteItem(props.list, "list");
+  // }
+  function handleEditList(){
+    props.editList(props.list)
+    console.log("Editing list");
+
   }
 
   return (
@@ -42,7 +47,7 @@ export const ListBox = (props) => {
           <styles.TicketCounter>
             {props.list.tickets.length}
           </styles.TicketCounter>
-          <DeleteButton handleDeleteTicket={handleDeleteTicket} />
+          <EditButton handleEditList={handleEditList} />
           <AddListButton handleAddTicket={handleAddTicket} />
         </styles.ButtonsRow>
       </styles.ListHeader>

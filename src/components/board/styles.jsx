@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const MiddleDiv = styled.div`
-display: flex;
-  overflow: auto;
+  display: flex;
+  overflow: auto; 
+  width:100%;
 `;
 
 export const AddListButton = styled.div`
   min-width: 300px;
   height: 39px;
-display: felx;
+  display: felx;
   flex-direction: row;
   align-items: center;
   background-color: rgb(43, 52, 59);

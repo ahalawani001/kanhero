@@ -7,7 +7,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 
 
-export const ShowLists = (props) => {
+export const Board = (props) => {
 
   
 const AddListButton = ()=>{
@@ -32,6 +32,7 @@ const AddListButton = ()=>{
             <ListBox
               list={list}
               addTicket={props.addTicket}
+              editList={props.editList}
               deleteItem={props.deleteItem}
               editTicket={props.editTicket}
             />

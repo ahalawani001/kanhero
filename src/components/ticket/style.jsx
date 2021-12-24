@@ -7,7 +7,7 @@ max-width: 250px;
 color: ${props=>(props.isDragging?  `#1e272e`: `#1e272e`)};
 margin: 10px;
 margin-top:20px;
- border-top: 2px solid ${props=> props.listColor};
+ border-top: 4px solid ${props=> props.listColor};
 height: 30px;;
 border-radius: 5px;
 font-weight: 600;

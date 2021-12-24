@@ -56,12 +56,12 @@ export const AddNewTicketForm = (props)=>{
             <form  onSubmit={submitHandler}> 
             <div className='groupList'>
             <div className="formItem">
-                
             <label className='formLabel' htmlFor="title" placeholder="Ex: All tasks">Title: </label>
             <input className='formInput' type="text"  required id = 'title' ref={titleRef}/>
             </div>
 
             <div className="formItem">
+            
             
             <label htmlFor="description" placeholder="Ex: All tasks">Description: </label>
             <textarea type="text"  id = 'description' ref={descriptionRef}/></div>

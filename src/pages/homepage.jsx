@@ -1,11 +1,12 @@
 import React from "react";
 import { Topbar } from "../components/topbar";
-import { ShowLists } from "../components/board";
+import { Board } from "../components/board";
 import { DeleteBox } from "../components/deleteBox";
 import styled from "styled-components";
 import { AddNewListForm } from "../components/list/addNewList";
 import { AddNewTicketForm } from "../components/ticket/addTicket";
 import { EditTicketForm } from "../components/ticket/editTicket";
+import { EditListForm } from "../components/list/editList";
 import { v4 } from "uuid";
 import { MdOutlineZoomOut } from "react-icons/md";
 
@@ -60,6 +61,7 @@ class Homepage extends React.PureComponent {
       showListDeleteBox: false,
       showTicketDeleteBox: false,
       showUpdateTicket: false,
+      showUpdateList: false
     };
     this.showAddListForm = this.showAddListForm.bind(this);
     this.closeAddListForm = this.closeAddListForm.bind(this);
@@ -75,6 +77,9 @@ class Homepage extends React.PureComponent {
     this.deleteTicket = this.deleteTicket.bind(this);
     this.changeTicketStatus = this.changeTicketStatus.bind(this);
     this.editTicket = this.editTicket.bind(this);
+    this.showUpdateList = this.showUpdateList.bind(this);
+    this.closeUpdateList = this.showUpdateList.bind(this);
+    this.editList = this.editList.bind(this);
   }
 
   addNewList(list) {
@@ -95,6 +100,19 @@ class Homepage extends React.PureComponent {
     this.setState({
       showAddList: false,
     });
+  }
+
+  showUpdateList(list){
+    this.setState({
+      activeList: list,
+      showUpdateList: !this.state.showUpdateList
+    });
+  }
+
+  closeUpdateList(){
+    this.setState({
+      showUpdateList: false
+    })
   }
 
   showAddTicketForm(list) {
@@ -144,6 +162,7 @@ class Homepage extends React.PureComponent {
     this.setState({
       lists: filteredList,
       activeList: {},
+      showUpdateList: false,
     });
   }
 
@@ -203,6 +222,24 @@ class Homepage extends React.PureComponent {
           newState
 )
 
+  }
+
+  editList(newList){
+    
+    let filteredList = this.state.lists.map(list=>{
+      if(list.id === newList.id)
+      {
+        return newList;
+      }
+      return list;
+    });
+
+    console.log(filteredList)
+    this.setState({
+      lists: filteredList,
+      showUpdateList: false
+    })
+   
   }
 
   changeTicketStatus(destination, source) {
@@ -276,9 +313,10 @@ class Homepage extends React.PureComponent {
 
         </div>
         }
-            <ShowLists
+            <Board
               lists={this.state.lists}
               addList={this.showAddListForm}
+              editList={this.showUpdateList}
               addTicket={this.showAddTicketForm}
               editTicket={this.showUpdateTicketForm}
               deleteItem={this.showDeleteBox}
@@ -296,6 +334,14 @@ class Homepage extends React.PureComponent {
                 closeForm={this.closeAddTicketForm}
                 addTicket={this.addNewTicket}
                 list={this.state.activeList}
+              />
+            )}
+            {this.state.showUpdateList && (
+              <EditListForm
+                list = {this.state.activeList}
+                editList={this.editList}
+                closeForm ={this.closeUpdateList}
+                deleteList={this.showDeleteBox}
               />
             )}
             {this.state.showListDeleteBox && (
