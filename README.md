@@ -27,11 +27,11 @@ A Kanban-style webapp that helps you organize and plan your project.
    
   - When creating a new list you can add a title and color for the list
   
-  ![image](https://user-images.githubusercontent.com/92730472/147390640-14dc5e81-26db-4ee7-b18b-f79534b53730.png)
+ ![image](https://user-images.githubusercontent.com/92730472/147390640-14dc5e81-26db-4ee7-b18b-f79534b53730.png)
   
   - When creating a new list you can add a title and color for the list
 
-  ![image](https://user-images.githubusercontent.com/92730472/147390727-c5a1cb83-7362-4939-a969-27dcac0011ab.png)
+ ![image](https://user-images.githubusercontent.com/92730472/147390727-c5a1cb83-7362-4939-a969-27dcac0011ab.png)
 
   By default the list color is white
   
@@ -52,8 +52,8 @@ A Kanban-style webapp that helps you organize and plan your project.
 
   - User can drag and drop any ticket from its original place to any desired list
   
- ![image](https://user-images.githubusercontent.com/92730472/147390929-d755097b-9718-492f-aa96-f1df6c1bb1d6.png
- 
+![image](https://user-images.githubusercontent.com/92730472/147391632-c5637916-87f8-4b42-acd0-c76506d34587.png)
+
   - User can click on anyticket to update it's content or change it's priority level
   
  ![image](https://user-images.githubusercontent.com/92730472/147390993-a0a218ca-a5ea-404d-90ad-a96e53686635.png)
