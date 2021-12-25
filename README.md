@@ -70,13 +70,13 @@ The drag and drop functionality was built with the react-beautiful-dnd library:
 
 ![image](https://user-images.githubusercontent.com/92730472/147391042-0bb5f9c3-8cf2-4f78-aa24-2e17d4186db4.png)
 
-  - <DragDropContext /> - Wraps the part of your application you want to have drag and drop enabled for
-  - <Droppable /> - An area that can be dropped into. Contains <Draggable />s
-  - <Draggable /> - What can be dragged around
+  - <b> DragDropContext</b>  - Wraps the part of your application you want to have drag and drop enabled for
+  - <b>Droppable</b>  - An area that can be dropped into. Contains Draggables
+  - <b>Draggable </b> - What can be dragged around
 
 ![screenshot](https://user-images.githubusercontent.com/92730472/147391724-7caf006e-bc05-45af-a59e-b60471585075.png)
 
-In our case the entire board is the <DragDropContext/>, each list is a <Droppable/> and each ticket is a <Draggable/>
+In our case the entire board is the <b> DragDropContext</b>, each list is a <b>Droppable</b>  and each ticket is a <b>Draggable </b> 
 
 <br/>
 
