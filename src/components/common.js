@@ -16,12 +16,19 @@ right:20px;
     z-index: 10;
     opacity: 0.7;  
 }
-
 `
 
 export const ClosePageButton = (props)=>{
 
     return <ClosePageDiv onClick={props.closeForm}>
-        <IoCloseOutline size={30}/>
-    </ClosePageDiv>
+             <IoCloseOutline size={30}/>
+         </ClosePageDiv>
 }
+
+
+export const ButtonsRow = styled.div`
+width: 100%;
+display:flex;
+justify-content: center;
+padding-right:30px;
+`;

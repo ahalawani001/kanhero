@@ -1,29 +1,32 @@
-import react, { useState, useRef } from "react";
-import styled from "styled-components";
+import { useState } from "react";
 import { ClosePageDiv } from "../common";
 import { MdDeleteForever } from "react-icons/md";
+import { ButtonsRow } from "../common";
+import { PrioritySelector } from "../prioritySelector/";
+import { EditTicketDiv } from "./style";
 
-const EditTicketDiv = styled.div`
-position: relative;
-width: 700px;
-height:400px;
-border-radius: 10px;
-background-color: #1e272e;
-`;
 
-const ButtonsRow = styled.div`
-width: 95%;
-display:flex;
-justify-content: right;
-padding-right:30px;
-`;
 
 export const EditTicketForm= (props)=>{
-    const [title, setTitle] = useState(props.title?props.title:'')
-    const [description, setDescription] = useState(props.description?props.description:'')
+    const [title, setTitle] = useState(props.ticket.title?props.ticket.title:'');
+    const [description, setDescription] = useState(props.ticket.description?props.ticket.description:'');
+    const [priority, setPriority] = useState(props.ticket.priority?props.ticket.priority:'None');
+    
     
     function submitHandler(event){
+        
         event.preventDefault();
+        let newTicket ={
+            index: props.index,
+            ticket:  {
+            id: props.ticket.id,
+            title: title,
+            description: description,
+            priority: priority
+        }
+        }
+
+        props.editTicket(newTicket);
     }
 
     function submitTitleOnChange (event){
@@ -33,36 +36,42 @@ export const EditTicketForm= (props)=>{
     function submitDescriptionOnChange (event){
         setDescription(event.target.value);
     }
+
+    
+    function handlePriorityChange(priority){
+        setPriority(priority);
+    }
     
     return <div className="customBackdrop">
         <EditTicketDiv>
         <ClosePageDiv onClick={props.deleteTicket}>
         <MdDeleteForever size={35} color="red"/>
         </ClosePageDiv>
-        <br />
-        {/* <h1>Update New Ticket</h1> */}
-        <br />  
-        <div style={{'marginTop':'50px'}}>
+        <div style={{'marginTop':'20px'}}>
             <form onSubmit={submitHandler}> 
             <div className='groupList'>
-            <label htmlFor="title" >Ticket Title: </label>
+
+            <div className="formItem">
+            <label htmlFor="title" >Title: </label>
             <input type="text"   id = 'title'  value ={title} onChange={submitTitleOnChange}/>
-            <br />
-            <br />
-            <br />
+            </div>
+        <br/>
             
+            <div className="formItem">
             <label htmlFor="description" >List Description </label>
             <textarea type="text"   id = 'description' onChange={submitDescriptionOnChange} value={description}/>
-            <br />
+            </div>
+    
+            <div className="formItem">
+            <PrioritySelector priority= {priority} changePriority={handlePriorityChange}/>
+            </div>
 
             <ButtonsRow >
-                
             <button className="cstmBtn" onClick={props.closeForm}>Cancel</button>
             <button className="updateBtn" >Update</button>
             </ButtonsRow>
          
             </div>
-
 
             </form>
         </div>

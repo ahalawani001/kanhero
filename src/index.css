@@ -1,26 +1,24 @@
-body {
-  align-items: center;
-  
-  font-family: 'Open Sans', sans-serif;
+
+html, body{
+  overflow: hidden;  
+  font-family: 'Convergence ', sans-serif;
   color: white;
+  background-color: rgb(43, 52, 59);
 }
-
-html{
-
-  background-color: rgb(43, 52, 59);}
-
 
 .customBackdrop{
   position:absolute;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  height: 120%;
+  background-color: rgba(100, 100, 100, 0.3);
   align-items: center;
   display:flex;
   justify-content: center;
 }
+
 .centerCard{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;  
   width: 90%;
@@ -36,19 +34,29 @@ html{
 
 .groupList{ 
   position:relative; 
+  width:80%;
 }
+
+.formItem{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .listBtn {
-  margin-right: 3px;
-  margin-left: 3px;
+  margin-right: 4px;
+  margin-left: 4px;
 }
+
 
 .listBtn:hover{
   cursor: pointer;
   opacity: 0.5
-  
 }
 
-::-webkit-scrollbar {
+ ::-webkit-scrollbar {
   display: none;
 }
 
@@ -58,7 +66,7 @@ html{
   border-radius: 20px;
 }
  
-/* Handle */
+/* Hahndle */
 ::-webkit-scrollbar-thumb {
   background: #2B343B; 
   border-radius: 20px;
@@ -67,48 +75,51 @@ html{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2B343B; 
-}
+} */
 
 label{
   font-size: 20px;
   margin-right: 20px;
   font-weight: 500;
 }
+
 .dropZone{
-  width:100%;
-  height: 100%;
-  /* background-color: red; */
+ width:100%;
+ height: 635px;
+ max-height: 635px;  
+ overflow-y: scroll;
 }
+
 input[type=text] {
   width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  background: transparent;
+  background: rgba(100, 100, 100, 0.1);
   border: none;
   border-bottom: 2px solid #ffffff;
   outline: none;
   color: white;
+  border-radius: 10px;
   font-size: 18px;
 }
 
 textarea[type=text]{
-  
+  height:200px;
   width: 70%;
   padding: 12px 20px;
-  margin: 8px 0;
   box-sizing: border-box;
-  background: transparent;
+  background: rgba(100, 100, 100, 0.1);
   border: none;
   border-bottom: 2px solid #ffffff;
   outline: none;
+  border-radius: 10px;
   color: white;
   font-size: 18px;
 }
 
 .cstmBtn{
   background-color: transparent;
-  
   border: 2px solid white;
   border-radius: 50px;
   padding: 14px 40px;
@@ -122,6 +133,7 @@ textarea[type=text]{
   background-color: rgb(90, 5, 200);  
   border: 2px solid rgb(90, 5, 200);
   border-radius: 50px;
+  
   padding: 14px 40px;
   font-size: 16px;
   cursor: pointer;
@@ -133,7 +145,6 @@ textarea[type=text]{
 
 .deleteBtn{
   background-color: red;
-  
   border: 2px solid red;
   border-radius: 50px;
   padding: 14px 40px;
