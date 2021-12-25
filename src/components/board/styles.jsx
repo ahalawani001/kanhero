@@ -9,8 +9,9 @@ export const MiddleDiv = styled.div`
 export const AddListButton = styled.div`
   min-width: 300px;
   height: 39px;
-  display: felx;
+  display: flex;
   flex-direction: row;
+
   align-items: center;
   background-color: rgb(43, 52, 59);
   opacity: 0.6;

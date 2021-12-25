@@ -2,7 +2,6 @@ import React from "react";
 import * as styles from './style';
 
 import { RiFlag2Line } from "react-icons/ri";
-import { PRIORITIES } from "../prioritySelector";
 
 export const  Ticket = (props)=>{
     function getColor()
@@ -24,25 +23,34 @@ export const  Ticket = (props)=>{
             case 'Urgent':
                 color =  'rgb(255, 105, 120)'
                 break;
+            default: 
+                color = 'transperent'
         }
-        console.log("color", props.priority)
         return color;
 
     }
     
     function handleEditTicket(){
-        console.log("JUST CLICKET ON A TICKET")
         let activeTicket = {
             index: props.index,
             ticket: props.ticket
         }
         props.editTicket(activeTicket, props.list);
     }
+
+    const PriorityButton = ()=>{
+        return (
+            <styles.PriorityBox color={getColor}>
+                 {props.ticket.priority} 
+                 <RiFlag2Line color="" size={20}/>
+             </styles.PriorityBox>
+        )
+    }
+
     return <styles.TicketDiv onClick={handleEditTicket} isDragging={props.isDragging} listColor={props.list.color}>
         {props.ticket.title} 
-        {props.ticket.priority !== 'None' && 
-        <styles.PriorityBox color={getColor}> {props.ticket.priority} <RiFlag2Line color="" size={20}></RiFlag2Line></styles.PriorityBox>}
-
+        {props.ticket.priority !== 'None' && <PriorityButton/> }
+      
     </styles.TicketDiv>
 
 }

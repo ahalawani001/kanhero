@@ -1,24 +1,17 @@
-import react, { useState, useRef } from "react";
-import styled from "styled-components";
+import { useState } from "react";
 import { ClosePageDiv } from "../common";
 import { MdDeleteForever } from "react-icons/md";
 import { ButtonsRow } from "../common";
-import { PrioritySelector } from "../prioritySelector";
+import { PrioritySelector } from "../prioritySelector/";
+import { EditTicketDiv } from "./style";
 
-const EditTicketDiv = styled.div`
-position: relative;
-width: 700px;
-padding: 25px;
-${'' /* height:400px; */}
-border-radius: 10px;
-background-color: #1e272e;
-`;
 
 
 export const EditTicketForm= (props)=>{
     const [title, setTitle] = useState(props.ticket.title?props.ticket.title:'');
     const [description, setDescription] = useState(props.ticket.description?props.ticket.description:'');
     const [priority, setPriority] = useState(props.ticket.priority?props.ticket.priority:'None');
+    
     
     function submitHandler(event){
         
@@ -54,7 +47,6 @@ export const EditTicketForm= (props)=>{
         <ClosePageDiv onClick={props.deleteTicket}>
         <MdDeleteForever size={35} color="red"/>
         </ClosePageDiv>
-        {/* <h1>Update New Ticket</h1> */}
         <div style={{'marginTop':'20px'}}>
             <form onSubmit={submitHandler}> 
             <div className='groupList'>
@@ -80,7 +72,6 @@ export const EditTicketForm= (props)=>{
             </ButtonsRow>
          
             </div>
-
 
             </form>
         </div>

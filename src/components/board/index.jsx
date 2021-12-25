@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import * as styles from "./styles";
 import { ListBox } from "../list";
 import { IoAddOutline } from "react-icons/io5";
-import * as data from "../../data";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 
 
 
@@ -12,7 +11,7 @@ export const Board = (props) => {
   
 const AddListButton = ()=>{
   return ( 
-  <styles.AddListButton onClick={props.addList}>
+  <styles.AddListButton  className ={'addListBtn'} onClick={props.addList}>
           <IoAddOutline size={25} className="listBtn" />
           <div>Add a new list</div>
   </styles.AddListButton>
@@ -20,7 +19,6 @@ const AddListButton = ()=>{
 }
 
   function handleDragEnd(data) {
-    console.log(data);
     props.changeTicketStatus(data.destination, data.source, data.draggableId);
   }
 

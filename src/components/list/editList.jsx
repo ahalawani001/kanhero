@@ -1,20 +1,9 @@
-import react, { useState, useRef } from "react";
-import styled from "styled-components";
-import { ClosePageButton } from "../common";
+import  { useState } from "react";
 import { ColorSelector } from "../colorSelector";
 import { ClosePageDiv } from "../common";
 import { MdDeleteForever } from "react-icons/md";
 import { ButtonsRow } from "../common";
-
-
-export const EditListDiv = styled.div`
-
-position: relative;
-width: 700px;
-${'' /* height:300px; */}
-border-radius: 10px;
-background-color: #1e272e;
-padding:25px;`;
+import { EditListDiv } from "./styles";
 
 
 export const EditListForm = (props)=>{
@@ -34,17 +23,12 @@ export const EditListForm = (props)=>{
         }
         props.editList(newList)
     }
-
-    function submitTitleOnChange (event){
-        setTitle(event.target.value);
-    }
-
+    
     function submitTitleOnChange (event){
         setTitle(event.target.value);
     } 
     
     function handleColorChange(color){
-        console.log("We here");
         setListColor(color)
     }
 

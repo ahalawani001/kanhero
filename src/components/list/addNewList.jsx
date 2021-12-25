@@ -1,5 +1,4 @@
-import react, { useState, useRef } from "react";
-import styled from "styled-components";
+import  { useState, useRef } from "react";
 import { ClosePageButton } from "../common";
 import { v4 } from "uuid";
 import * as styles from "./styles";
@@ -31,7 +30,6 @@ export const AddNewListForm = (props)=>{
     }
 
     function handleColorChange(color){
-        console.log("We here");
         setListColor(color)
     }
 
@@ -40,7 +38,6 @@ export const AddNewListForm = (props)=>{
         <ClosePageButton closeForm = {props.closeForm}></ClosePageButton>
         <br />
         <h1>Add New List</h1>
-        {/* <br />   */}
         <div>
             <form onSubmit={submitHandler}> 
             <div className='groupList'>

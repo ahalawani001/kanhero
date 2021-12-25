@@ -2,13 +2,11 @@ import React from "react";
 import { Topbar } from "../components/topbar";
 import { Board } from "../components/board";
 import { DeleteBox } from "../components/deleteBox";
-import styled from "styled-components";
 import { AddNewListForm } from "../components/list/addNewList";
 import { AddNewTicketForm } from "../components/ticket/addTicket";
 import { EditTicketForm } from "../components/ticket/editTicket";
 import { EditListForm } from "../components/list/editList";
 import { v4 } from "uuid";
-import { MdOutlineZoomOut } from "react-icons/md";
 
 const listsId = ["L" + v4(), "L" + v4(), "L" + v4()];
 
@@ -84,7 +82,6 @@ class Homepage extends React.PureComponent {
 
   addNewList(list) {
     let newList = list;
-    console.log("New List is ", newList);
     this.setState({
       lists: [...this.state.lists, newList],
     });
@@ -167,8 +164,6 @@ class Homepage extends React.PureComponent {
   }
 
   showUpdateTicketForm(ticket, list) {
-    console.log("This ticket  ---> ", ticket)
-
     this.setState({
       showUpdateTicket: true,   
       activetTicket: ticket,
@@ -186,7 +181,6 @@ class Homepage extends React.PureComponent {
   }
 
   deleteTicket() {
-    console.log("Deleting Ticket");
     const newState = {
         ...this.state,
         lists: this.state.lists.map((list)=>{
@@ -234,7 +228,6 @@ class Homepage extends React.PureComponent {
       return list;
     });
 
-    console.log(filteredList)
     this.setState({
       lists: filteredList,
       showUpdateList: false
@@ -279,7 +272,6 @@ class Homepage extends React.PureComponent {
         destination.index
       );
 
-      // return
     }
 
     const newState = {
@@ -306,13 +298,13 @@ class Homepage extends React.PureComponent {
         <center>
           <div className="centerCard">
             
-        {this.state.lists.length === 0 && 
+        {/* {this.state.lists.length === 0 && 
         <div>
         <h2>Welcome To KanHero</h2>
         <h3>Create Your First List</h3>
 
         </div>
-        }
+        } */}
             <Board
               lists={this.state.lists}
               addList={this.showAddListForm}
@@ -372,4 +364,6 @@ class Homepage extends React.PureComponent {
     );
   }
 }
+
+
 export default Homepage;

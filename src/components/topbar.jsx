@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const Topbar =styled.div`
@@ -8,12 +7,10 @@ export const Topbar =styled.div`
   width:100%;
   padding:10px;
   background-color: #1e272e;
-    color: white;
+  color: white;
   font-size: 24px;
-  text-align: center;
-  
-display: flex;
-flex-direction: row;
-justify-content: center;
-
+  text-align: center; 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;

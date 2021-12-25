@@ -1,18 +1,8 @@
-import react, { useState, useRef } from "react";
-import styled from "styled-components";
+import { useState, useRef } from "react";
 import { ClosePageButton } from "../common";
 import { v4 } from "uuid";
-import { PrioritySelector } from "../prioritySelector";
-
-const AddTicketDiv = styled.div`
-position: relative;
-width: 700px;
-${'' /* height:420px; */}
-border-radius: 10px;
-background-color: #1e272e;
-padding: 30px;
-`;
-
+import { PrioritySelector } from "../prioritySelector/";
+import { AddTicketDiv } from "./style";
 
 
 
@@ -39,7 +29,6 @@ export const AddNewTicketForm = (props)=>{
     }
 
     function handlePriorityChange(priority){
-        console.log("We here");
         setTaskPriority(priority);
     }
 
@@ -50,7 +39,6 @@ export const AddNewTicketForm = (props)=>{
     <AddTicketDiv>
         
     <ClosePageButton closeForm = {props.closeForm}></ClosePageButton>
-        {/* <br />   */}
         <h1>Add New Ticket</h1>
         <div>
             <form  onSubmit={submitHandler}> 
@@ -65,7 +53,7 @@ export const AddNewTicketForm = (props)=>{
             
             <label htmlFor="description" placeholder="Ex: All tasks">Description: </label>
             <textarea type="text"  id = 'description' ref={descriptionRef}/></div>
-            {/* <br /> */}
+      
             <div className="formItem">
                 
             <PrioritySelector priority= {taskPriority} changePriority={handlePriorityChange}/>

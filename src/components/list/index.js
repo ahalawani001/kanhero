@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { IoAddOutline } from "react-icons/io5";
 import * as styles from "./styles";
@@ -30,12 +28,8 @@ export const ListBox = (props) => {
     props.addTicket(props.list);
   }
 
-  // function handleDeleteTicket() {
-  //   props.deleteItem(props.list, "list");
-  // }
   function handleEditList(){
     props.editList(props.list)
-    console.log("Editing list");
 
   }
 
@@ -58,7 +52,6 @@ export const ListBox = (props) => {
               ref={provided.innerRef}
               {...provided.droppableProps}
               isDraggingOver={snapshot.isDraggingOver}
-              // className="dropZone"
             >
               {props.list.tickets.map((ticket, index) => {
                 return (

@@ -21,8 +21,8 @@ right:20px;
 export const ClosePageButton = (props)=>{
 
     return <ClosePageDiv onClick={props.closeForm}>
-        <IoCloseOutline size={30}/>
-    </ClosePageDiv>
+             <IoCloseOutline size={30}/>
+         </ClosePageDiv>
 }
 
 
